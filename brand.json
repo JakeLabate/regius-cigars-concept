@@ -1,0 +1,18 @@
+{
+  "source": "https://www.regiuscigars.com/ (offline for a rebuild on 2026-11-13: 'Site temporarily offline. We are preparing something new.')",
+  "captured": "Official site is offline, so no first-party CSS or assets exist to pull. Colors are sampled from the Regius logo and cigar band as reproduced by halfwheel (2011, 2012), used as reference only. Fonts are chosen, not found. No logo file is vendored: the wordmark is set in type.",
+  "colors": {
+    "ink":   {"value": "#090807", "evidence": "logo field and cigar band background, sampled #080808"},
+    "brand": {"value": "#c69b59", "evidence": "gold ornament, frame and ribbon in the logo, median of sampled gold pixels (198,155,89)"},
+    "paper": {"value": "#f1e0c2", "evidence": "highlight tone of the gold foil in the logo, median of sampled light pixels (241,224,194)"},
+    "red":   {"value": "#8a2924", "evidence": "REGIUS letters in the logo and on the band, median of sampled red pixels (138,41,36)"},
+    "cedar": {"value": "#e2cdaa", "evidence": "inferred: chosen to read as the cedar interior of a cigar box, not sampled from Regius material"}
+  },
+  "fonts": {
+    "wordmark": {"family": "Cinzel", "source": "fontsource", "evidence": "chosen: Roman inscriptional capitals, closest free match to the capitals on the 'Arbiter Elegantiae' ribbon"},
+    "display":  {"family": "Libre Caslon Display", "source": "fontsource", "evidence": "chosen: an English Caslon for a London house"},
+    "body":     {"family": "Libre Caslon Text", "source": "fontsource", "evidence": "chosen: text cut of the same Caslon"}
+  },
+  "assets": [],
+  "tone": "formal British, classical references (Petronius, arbiter elegantiae). Site copy is written in the third person because this is an independent concept, not the brand speaking."
+}
