@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://regius.jakelabate.com/sitemap.xml

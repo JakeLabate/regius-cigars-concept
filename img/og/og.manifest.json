@@ -1,0 +1,52 @@
+{
+  "template": "1",
+  "style": "dark",
+  "base_url": "https://regius.jakelabate.com/",
+  "pages": {
+    "about.html": {
+      "image": "img/og/about.png",
+      "fingerprint": "1462b6ac1a032906",
+      "title": "About this site | Regius Cigars concept and sources"
+    },
+    "black-label.html": {
+      "image": "img/og/black-label.png",
+      "fingerprint": "a20eedf1dfb42924",
+      "title": "Regius Black Label | The original Nicaraguan puro"
+    },
+    "cigars.html": {
+      "image": "img/og/cigars.png",
+      "fingerprint": "41d092959cb8523c",
+      "title": "Regius cigars | Every blend and size, drawn to scale"
+    },
+    "exclusivo-usa.html": {
+      "image": "img/og/exclusivo-usa.png",
+      "fingerprint": "f019bebb7d55e494",
+      "title": "Regius Exclusivo U.S.A. | Red, White and Blue Label"
+    },
+    "house.html": {
+      "image": "img/og/house.png",
+      "fingerprint": "84b8b471d746a92a",
+      "title": "The house of Regius | Name, makers and timeline"
+    },
+    "index.html": {
+      "image": "img/og/index.png",
+      "fingerprint": "350f90d4dcc67b1c",
+      "title": "Regius Cigars | London cigar house, rolled in Estel\u00ed"
+    },
+    "limited-editions.html": {
+      "image": "img/og/limited-editions.png",
+      "fingerprint": "2446287eff73de3f",
+      "title": "Regius limited editions | Selecci\u00f3n Orchant and more"
+    },
+    "recognition.html": {
+      "image": "img/og/recognition.png",
+      "fingerprint": "91450fd777b5d114",
+      "title": "Regius Cigars ratings | Top 25 lists and review scores"
+    },
+    "stockists.html": {
+      "image": "img/og/stockists.png",
+      "fingerprint": "7cc2b869f66fcbdc",
+      "title": "Where to buy Regius cigars | UK and US stockists"
+    }
+  }
+}

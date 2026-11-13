@@ -1,0 +1,86 @@
+{
+  "entries": [
+    {
+      "family": "Libre Caslon Display",
+      "package": "libre-caslon-display",
+      "variable": false,
+      "faces": [
+        {
+          "file": "libre-caslon-display-latin-400-normal.woff2",
+          "weight": "400"
+        }
+      ],
+      "fallback": "georgia",
+      "metrics": {
+        "upem": 1000,
+        "ascent": 970,
+        "descent": -266,
+        "gap": 0,
+        "avg": 362.7
+      },
+      "overrides": {
+        "size-adjust": "72.54%",
+        "ascent-override": "133.72%",
+        "descent-override": "36.67%",
+        "line-gap-override": "0.00%"
+      },
+      "stack": "'Libre Caslon Display', 'Libre Caslon Display Fallback', Georgia, serif"
+    },
+    {
+      "family": "Libre Caslon Text",
+      "package": "libre-caslon-text",
+      "variable": false,
+      "faces": [
+        {
+          "file": "libre-caslon-text-latin-400-normal.woff2",
+          "weight": "400"
+        },
+        {
+          "file": "libre-caslon-text-latin-700-normal.woff2",
+          "weight": "700"
+        }
+      ],
+      "fallback": "georgia",
+      "metrics": {
+        "upem": 1000,
+        "ascent": 970,
+        "descent": -260,
+        "gap": 0,
+        "avg": 469.8
+      },
+      "overrides": {
+        "size-adjust": "93.96%",
+        "ascent-override": "103.24%",
+        "descent-override": "27.67%",
+        "line-gap-override": "0.00%"
+      },
+      "stack": "'Libre Caslon Text', 'Libre Caslon Text Fallback', Georgia, serif"
+    },
+    {
+      "family": "Cinzel",
+      "package": "cinzel",
+      "variable": false,
+      "faces": [
+        {
+          "file": "cinzel-latin-500-normal.woff2",
+          "weight": "500"
+        }
+      ],
+      "fallback": "georgia",
+      "metrics": {
+        "upem": 1000,
+        "ascent": 976,
+        "descent": -372,
+        "gap": 0,
+        "avg": 559.2
+      },
+      "overrides": {
+        "size-adjust": "111.84%",
+        "ascent-override": "87.27%",
+        "descent-override": "33.26%",
+        "line-gap-override": "0.00%"
+      },
+      "stack": "'Cinzel', 'Cinzel Fallback', Georgia, serif"
+    }
+  ]
+}
