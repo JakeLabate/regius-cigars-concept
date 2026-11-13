@@ -194,7 +194,7 @@ def page_head(crumbs, h1, lede):
 
 def write(page, title, desc, body, crumbs=None):
     out = head(page, title, desc, crumbs) + header(page) + f'<main id="main">\n{body}\n</main>\n' + footer()
-    for bad in ("—", "–"):
+    for bad in (chr(0x2014), chr(0x2013)):
         assert bad not in out, f"dash found in {page}"
     with open(os.path.join(SITE, page), "w", encoding="utf-8") as fh:
         fh.write(out)
