@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Builds the Regius concept site into ../site as plain, self-contained HTML pages.
+"""Builds the Regius staging site into ../site as plain, self-contained HTML pages.
 
-Spec mode: this is an unsolicited concept. Every page carries noindex, the staging
-notice as its first element, and the footer disclosure. Nothing here is invented:
+Spec mode: Regius did not commission this. It is presented as a gift from Demian and Mike
+at Cigar and Lounge, Watertown, MA. Every page carries noindex, the staging notice as its
+first element, and the footer disclosure. Nothing here is invented:
 every fact traces to a source listed on about.html.
 """
 import html
@@ -19,6 +20,7 @@ BASE = "https://regius.jakelabate.com/"
 SITE = os.path.join(HERE, "..", "site")
 OFFICIAL = "https://www.regiuscigars.com/"
 COMPANIES_HOUSE = "https://find-and-update.company-information.service.gov.uk/company/06969408"
+SHOP_URL = "https://www.cigarandlounge.com/"
 
 NAV = [("cigars.html", "Cigars"), ("house.html", "The house"),
        ("limited-editions.html", "Limited editions"), ("recognition.html", "Recognition"),
@@ -49,11 +51,14 @@ def head(page, title, desc, crumbs):
     og = f"{BASE}img/og/{og_slug(page)}.png"
     graph = [
         {"@type": "WebSite", "@id": BASE + "#website", "url": BASE,
-         "name": "Regius Cigars concept site", "inLanguage": "en-GB",
-         "description": "An unofficial concept site for Regius Cigars, the London cigar house.",
-         "creator": {"@id": BASE + "#author"}, "about": {"@id": BASE + "#regius"}},
-        {"@type": "Person", "@id": BASE + "#author", "name": "Jake Labate",
-         "jobTitle": "SEO Consultant", "url": "https://jakelabate.com/"},
+         "name": "Regius Cigars staging site", "inLanguage": "en-GB",
+         "description": "A proposed website for Regius Cigars, the London cigar house, made as a gift by Cigar and Lounge of Watertown, Massachusetts.",
+         "creator": {"@id": BASE + "#maker"}, "about": {"@id": BASE + "#regius"}},
+        {"@type": "Store", "@id": BASE + "#maker", "name": "Cigar and Lounge", "url": SHOP_URL,
+         "telephone": "+1-617-393-1645",
+         "address": {"@type": "PostalAddress", "streetAddress": "56 Dexter Ave",
+                     "addressLocality": "Watertown", "addressRegion": "MA",
+                     "postalCode": "02472", "addressCountry": "US"}},
         {"@type": "Organization", "@id": BASE + "#regius", "name": "Regius Cigars",
          "legalName": "Regius Cigars Limited", "url": OFFICIAL, "foundingDate": "2010",
          "foundingLocation": {"@type": "Place", "name": "London, United Kingdom"},
@@ -80,7 +85,7 @@ def head(page, title, desc, crumbs):
 {base}<title>{esc(title)}</title>
 <meta name="description" content="{esc(desc)}">
 {canonical}<meta property="og:type" content="website">
-<meta property="og:site_name" content="Regius Cigars concept site">
+<meta property="og:site_name" content="Regius Cigars staging site">
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{u}">
@@ -115,7 +120,7 @@ def header(page):
             attr = ' class="here"'
         items.append(f'<li><a href="{href}"{attr}>{label}</a></li>')
     return f"""<body>
-<div class="notice"><div class="wrap"><b>Staging site.</b><p>A proposal for Regius Cigars. <a href="about.html">About this site</a></p></div></div>
+<div class="notice"><div class="wrap"><b>Staging site.</b><p>A proposal for Regius Cigars from your friends Demian and Mike at Cigar and Lounge in Watertown, MA. <a href="about.html">About this gift</a></p></div></div>
 <a class="skip" href="#main">Skip to content</a>
 {k.DEFS}
 <header class="head lid"><div class="wrap">
@@ -135,12 +140,12 @@ def footer():
 </div>
 <nav aria-label="All pages"><ul class="foot-nav">{links}</ul></nav>
 <div class="small">
-<p class="disclaimer">Unofficial concept site. Not affiliated with or commissioned by Regius Cigars.</p>
-<p class="quiet">For adults of legal smoking age only. Smoking tobacco harms your health.</p>
+<p class="disclaimer">A gift from your friends Demian and Mike at Cigar and Lounge in Watertown, MA. The build is free, the hosting is free if it is useful, and the code is yours if you would rather have it.</p>
+<p class="quiet">Not the official Regius site. Regius did not commission it. For adults of legal smoking age only. Smoking tobacco harms your health.</p>
 </div>
 </div>
 <div class="legal">
-<p>Concept by <a href="https://jakelabate.com/">Jake Labate, SEO Consultant</a></p>
+<p>Made for Regius by <a href="{SHOP_URL}" rel="noopener">Cigar and Lounge</a>, 56 Dexter Ave, Watertown, MA</p>
 <p><a href="about.html">Sources and method</a></p>
 </div>
 </div></footer>
@@ -153,7 +158,7 @@ def footer():
 <button class="btn btn-plain" id="gate-no" type="button">No, I am not</button>
 </div>
 <p class="gate-msg" id="gate-msg" hidden>This site is only for adults of legal smoking age.</p>
-<p class="gate-note">Staging site. A proposal for Regius Cigars, not affiliated with or commissioned by them.</p>
+<p class="gate-note">Staging site. A proposal for Regius Cigars from your friends at Cigar and Lounge, Watertown, MA. Not the official Regius site.</p>
 </dialog>
 <script>
 (function(){{
@@ -904,13 +909,17 @@ def about():
         + "".join(f"<li>{ext(u, esc(n))}</li>" for n, u in items) + "</ul></div>"
         for g, items in groups)
     body = page_head(crumbs, "About this site",
-                     "This is an unofficial concept site. Regius Cigars did not commission it, has not reviewed it and is not affiliated with it.") + f"""
+                     "A gift to Regius from your friends Demian and Mike at Cigar and Lounge in Watertown, Massachusetts.") + f"""
 <section class="band tray"><div class="wrap cols">
-<div class="side"><h2>What it is</h2></div>
+<div class="side"><h2>From your friends</h2></div>
 <div>
-<p>This site was designed and written in November 2026 by Jake Labate, SEO Consultant, as a proposal for Regius Cigars: a picture of what the house's website could be.</p>
-<p>When it was made, the official address, <span class="quiet">regiuscigars.com</span>, showed a holding page saying a new site was being prepared.</p>
-<p>If Regius would like anything here changed, or the whole site taken down, it will be done the same day. Write to Jake through <a href="https://jakelabate.com/">jakelabate.com</a>.</p>
+<p>This site is a gift. Demian and Mike at Cigar and Lounge in Watertown, Massachusetts, put it together for Regius in November 2026, when regiuscigars.com was showing a holding page that said a new site was on the way. It is a picture of what that site could be.</p>
+{spec([("The build", "Free. It is a gift."),
+       ("Hosting", "Free too, for as long as that is useful to you."),
+       ("The code", "Yours if you would rather have it. Say the word and it will be handed over to run wherever you like."),
+       ("Changes", "Anything you want changed or taken down is done the same day.")])}
+<p class="more">Regius did not commission this site and has not reviewed it. Until you say otherwise, it stays marked as a staging site and hidden from search engines.</p>
+<p>You know where to find us: <a href="{SHOP_URL}" rel="noopener">Cigar and Lounge</a>, 56 Dexter Ave, Watertown, MA, or 617-393-1645.</p>
 </div>
 </div></section>
 
@@ -922,7 +931,7 @@ def about():
 <li>No Regius logo, band artwork or photography appears. The name is set in type, and the cigars are original drawings made from published dimensions.</li>
 <li>The copy is written in the third person. It describes Regius and does not speak for it.</li>
 <li>Prices are left out because they change. Customer reviews are left out because they belong to the people who wrote them.</li>
-<li>Every page is marked noindex, so this concept does not compete with Regius in search.</li>
+<li>Every page is marked noindex, so this staging site does not compete with Regius in search.</li>
 </ul>
 </div>
 </div></section>
@@ -931,8 +940,8 @@ def about():
 <div class="side"><h2>Sources</h2></div>
 <div>{src}</div>
 </div></section>"""
-    write("about.html", "About this site | Regius Cigars concept and sources",
-          "This is an unofficial concept site for Regius Cigars by Jake Labate, SEO Consultant. How it was researched, what was left out, and every source used.",
+    write("about.html", "About this site | A gift to Regius from Cigar and Lounge",
+          "This staging site is a gift to Regius Cigars from Demian and Mike at Cigar and Lounge in Watertown, MA. What is on offer, how it was made, and every source.",
           body, crumbs)
 
 
@@ -942,8 +951,8 @@ def notfound():
 <p class="lede">The address may have changed, or the page may never have existed. These will get you back.</p>
 <p class="hero-links"><a href="index.html">Home</a><a href="cigars.html">The cigars</a><a href="house.html">The house</a></p>
 </div></section>"""
-    write("404.html", "Page not found | Regius Cigars concept site",
-          "The page you were looking for is not here. Go back to the Regius Cigars concept site home page or see the cigars.",
+    write("404.html", "Page not found | Regius Cigars staging site",
+          "The page you were looking for is not here. Go back to the Regius Cigars staging site home page or see the cigars.",
           body)
 
 

@@ -1,6 +1,9 @@
-# Regius Cigars concept site
+# Regius Cigars staging site
 
-Unofficial concept site for Regius Cigars, live at https://regius.jakelabate.com/
+A proposed website for Regius Cigars, live at https://regius.jakelabate.com/
+
+It is presented as a gift to Regius from Demian and Mike at Cigar and Lounge, Watertown, MA:
+free build, free hosting if useful, and the code transferable if Regius prefers.
 
 Built in spec mode: Regius did not commission it. Every page carries `noindex, nofollow`,
 the staging notice as its first element, and the footer disclosure. `robots.txt` disallows
